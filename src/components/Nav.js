@@ -4,7 +4,7 @@ const Nav = () => {
   return (
     <div className="nav">
       <Link className="nav-links" to="articles">
-        Articles
+        <h1>Articles</h1>
       </Link>
       <h1>NC-NEWS</h1>
     </div>

@@ -1,36 +1,38 @@
 import React, { useEffect, useState } from "react";
+import { fetchArticles } from "../api";
+import { Link, useParams } from "react-router-dom";
 
-import fetchArticles from "./api";
 const Articles = () => {
   const [articleList, setArticleList] = useState([]);
+  const { slug } = useParams();
 
   useEffect(() => {
-    setArticleList([]);
-    fetchArticles().then((articles) => {
-      setArticleList(articles.article);
+    fetchArticles(slug).then((articles) => {
+      setArticleList(articles);
     });
   }, []);
 
   return (
     <>
-      <div>
-        <ul>
-          {articleList.map((article) => {
-            return (
-              <li key="articleInfo">
-                <div className="articles">
-                  <h2>{article.title}</h2>
-                  <h3>Author: {article.author}</h3>
-
-                  <h3>Topic: {article.topic}</h3>
-                  <h3>Votes: {article.votes}</h3>
-                  <h3>Comments: {article.comment_count}</h3>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      <Link className="topic-links" to="/topics">
+        <h2>All Topics</h2>
+      </Link>
+      {articleList.map((article) => {
+        return (
+          <div key={article.article_id} className="article-container">
+            <li>
+              <Link to={`/articles/${article.article_id}`}>
+                <h1>{article.title}</h1>
+              </Link>
+              <h2>Author: {article.author}</h2>
+              <h2>Topic: {article.topic}</h2>
+              <h2>Votes: {article.votes}</h2>
+              <h2> Comments: {article.comment_count}</h2>
+              <h2> Posted at: {article.created_at}</h2>
+            </li>
+          </div>
+        );
+      })}
     </>
   );
 };
