@@ -32,8 +32,13 @@ export const getCommentsById = (article_id) => {
   });
 };
 
-export const postCommentsById = (article_id) => {
-  return newsApi.post(`/articles/${article_id}/comments`).then((res) => {
-    return res.data.comments;
-  });
+export const postCommentsById = (article_id, username, body) => {
+  return newsApi
+    .post(`/articles/${article_id}/comments`, {
+      username: username,
+      body: body,
+    })
+    .then((res) => {
+      return res.data.comments;
+    });
 };

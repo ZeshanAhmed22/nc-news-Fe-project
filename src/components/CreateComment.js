@@ -1,25 +1,31 @@
 import { postCommentsById } from "../api";
+import React, { useState } from "react";
 
-const CreateComment = ({ setArticleComments, id }) => {
-  const commentHandler = (event) => {
+const CreateComment = ({ id }) => {
+  const [textInput, setTextInput] = useState("");
+  console.log("teststst");
+
+  const handleSubmit = (event) => {
     event.preventDefault();
-    postCommentsById(id, event.target.comment.value).then((res) => {
-      setArticleComments((currentComments) => [res, ...currentComments]);
-      event.target.comment.value = "";
-    });
+    setTextInput("");
+    // postCommentsById(id, "guest", textInput).then(() => {
+    //   setTextInput("")
+    // })
   };
+
   return (
     <div className="comment">
-      <form onSubmit={commentHandler}>
+      <form onSubmit={handleSubmit}>
         <label>
           <input
-            type="text"
-            id="comment"
-            placeholder="Type comment here ..."
+            value={textInput}
+            onChange={(event) => {
+              setTextInput(event.target.value);
+            }}
             required
           ></input>
         </label>
-        <button>Submit</button>
+        <input type="submit" value="Submit" />
       </form>
     </div>
   );

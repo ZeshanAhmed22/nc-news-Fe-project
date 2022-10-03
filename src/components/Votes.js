@@ -44,11 +44,11 @@ const Votes = ({ voteCount, articleId }) => {
   return (
     <div>
       <button onClick={addVotes}>
-        <IoMdThumbsUp />
+        <IoMdThumbsUp /> Like
       </button>
       <h2>Votes: {storedVotes}</h2>
       <button onClick={decreaseVotes}>
-        <IoMdThumbsDown />
+        <IoMdThumbsDown /> Dislike
       </button>
     </div>
   );

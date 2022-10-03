@@ -14,23 +14,22 @@ const Topics = () => {
   console.log(topicList);
 
   return (
-    <>
+    <div>
+      <h1>Choose a Topic</h1>
       {topicList.map((topic) => {
         const slug = topic.slug;
-        <h1>Choose a Topic</h1>;
+
         return (
-          <>
-            <div className="article-container">
-              <li>
-                <Link to={`/topics/${slug}`}>
-                  <h2>{slug}</h2>
-                </Link>
-              </li>
-            </div>
-          </>
+          <div key={slug} className="topics-container">
+            <li>
+              <Link to={`/topics/${slug}`}>
+                <h2>{slug}</h2>
+              </Link>
+            </li>
+          </div>
         );
       })}
-    </>
+    </div>
   );
 };
 
