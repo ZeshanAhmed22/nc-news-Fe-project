@@ -12,7 +12,6 @@ const Comments = () => {
       setArticleComments(res);
     });
   }, []);
-  console.log("kskdfhk");
   return (
     <div>
       <CreateComment setArticleComments={setArticleComments} id={id} />

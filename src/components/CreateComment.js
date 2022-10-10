@@ -1,16 +1,15 @@
 import { postCommentsById } from "../api";
 import React, { useState } from "react";
 
-const CreateComment = ({ id }) => {
+const CreateComment = ({ id, setArticleComments }) => {
   const [textInput, setTextInput] = useState("");
-  console.log("teststst");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setTextInput("");
-    // postCommentsById(id, "guest", textInput).then(() => {
-    //   setTextInput("")
-    // })
+    postCommentsById(id, "grumpy19", textInput).then((newComment) => {
+      setArticleComments((currComment) => [...currComment, newComment]);
+      setTextInput("");
+    });
   };
 
   return (

@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { fetchArticles } from "../api";
 import { Link, useParams } from "react-router-dom";
+import Orderby from "./OrderBy";
+import Sortby from "./Sortby";
 
 const Articles = () => {
   const [articleList, setArticleList] = useState([]);
   const { slug } = useParams();
+  const [sortBy, setSortBy] = useState("created_at");
+  const [orderBy, setOrderBy] = useState("DESC");
 
   useEffect(() => {
-    fetchArticles(slug).then((articles) => {
+    fetchArticles(slug, sortBy, orderBy).then((articles) => {
       setArticleList(articles);
     });
-  }, []);
+  }, [orderBy, sortBy]);
 
   return (
     <>
       <Link className="topic-links" to="/topics">
         <h2>All Topics</h2>
       </Link>
+      <Sortby setSortBy={setSortBy} />
+      <Orderby setOrderBy={setOrderBy} />
       {articleList.map((article) => {
         return (
           <div key={article.article_id} className="article-container">
