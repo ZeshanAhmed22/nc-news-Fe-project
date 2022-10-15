@@ -1,0 +1,18 @@
+.comments-section {
+  list-style: none;
+  border: solid 5px white;
+  margin: 0px 0px 50px;
+  border-radius: 15px;
+  padding: 20px;
+  background-color: #003060;
+  font-size: 24px;
+  color: white;
+  h3,
+  p {
+    color: white;
+    margin-bottom: 15px;
+  }
+  p {
+    font-size: 20px;
+  }
+}

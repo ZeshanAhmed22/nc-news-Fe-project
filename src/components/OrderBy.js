@@ -5,9 +5,17 @@ const Orderby = ({ setOrderBy }) => {
   };
 
   return (
-    <select onChange={handleChange} defaultValue={"DESC"}>
-      <option value="ASC">Ascending</option>
-      <option value="DESC">Descending</option>
+    <select
+      className="filter-order"
+      onChange={handleChange}
+      defaultValue={"DESC"}
+    >
+      <option className="options" value="ASC">
+        Ascending
+      </option>
+      <option className="options" value="DESC">
+        Descending
+      </option>
     </select>
   );
 };

@@ -1,0 +1,40 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  color: black;
+}
+.app {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px 40px;
+}
+p {
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+}
+body {
+  background-color: #e9dac4;
+}
+.text-left {
+  text-align: left;
+  padding: 0 20px;
+  font-weight: bold;
+}
+.background-blue {
+  background-color: #003060;
+  color: white;
+  padding-bottom: 5px;
+}
+@import "./nav";
+@import "./topics";
+@import "./articles";
+@import "./single-article";
+@import "./votes";
+@import "./comments";
+@import "./create-comment";
+@import "./delete-comment";

@@ -1,0 +1,22 @@
+.single-article {
+  list-style: none;
+  list-style: none;
+  border: solid 5px #003060;
+  margin: 20px 0px 50px;
+  border-radius: 15px;
+  background-color: white;
+  text-align: center;
+
+  h2,
+  h3 {
+    margin-bottom: 15px;
+  }
+}
+h3 {
+  font-size: 20px;
+}
+
+.comments {
+  text-align: center;
+  list-style: none;
+}

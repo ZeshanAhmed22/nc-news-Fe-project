@@ -21,20 +21,30 @@ const Articles = () => {
       <Link className="topic-links" to="/topics">
         <h2>All Topics</h2>
       </Link>
-      <Sortby setSortBy={setSortBy} />
-      <Orderby setOrderBy={setOrderBy} />
+      <div className="filters">
+        <h2 className="article-title">Articles</h2>
+        <div>
+          <Sortby setSortBy={setSortBy} />
+          <Orderby setOrderBy={setOrderBy} />
+        </div>
+      </div>
       {articleList.map((article) => {
         return (
           <div key={article.article_id} className="article-container">
             <li>
-              <Link to={`/articles/${article.article_id}`}>
-                <h1>{article.title}</h1>
+              <Link
+                className="article-title"
+                to={`/articles/${article.article_id}`}
+              >
+                <h2 className="background-blue">{article.title}</h2>
               </Link>
-              <h2>Author: {article.author}</h2>
-              <h2>Topic: {article.topic}</h2>
-              <h2>Votes: {article.votes}</h2>
-              <h2> Comments: {article.comment_count}</h2>
-              <h2> Posted at: {article.created_at}</h2>
+              <h3>Author: {article.author}</h3>
+              <h3>Topic: {article.topic}</h3>
+              <h3>Votes: {article.votes}</h3>
+              <h3> Comments: {article.comment_count}</h3>
+              <h3>
+                Posted at: {new Date(article.created_at).toLocaleDateString()}
+              </h3>
             </li>
           </div>
         );

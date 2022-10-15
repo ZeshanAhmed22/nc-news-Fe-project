@@ -1,4 +1,4 @@
-import "./App.css";
+import "./components/styles/app.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Nav from "./components/Nav";
 import Articles from "./components/Articles";
@@ -7,7 +7,7 @@ import SingleArticle from "./components/SingleArticle";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <>
         <BrowserRouter>
           <Nav />

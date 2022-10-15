@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { patchArticleVotes } from "../api";
 import { IoMdThumbsUp, IoMdThumbsDown } from "react-icons/io";
+import { IconContext } from "react-icons";
 
 const Votes = ({ voteCount, articleId }) => {
   const [storedVotes, setStoredVotes] = useState(voteCount);
@@ -42,15 +43,17 @@ const Votes = ({ voteCount, articleId }) => {
   };
 
   return (
-    <div>
-      <button onClick={addVotes}>
-        <IoMdThumbsUp /> Like
-      </button>
-      <h2>Votes: {storedVotes}</h2>
-      <button onClick={decreaseVotes}>
-        <IoMdThumbsDown /> Dislike
-      </button>
-    </div>
+    <IconContext.Provider value={{ color: "white", size: "40px" }}>
+      <div className="votes">
+        <button className="add-vote" onClick={addVotes}>
+          <IoMdThumbsUp fill="white" />
+        </button>
+        <h3>Votes: {storedVotes}</h3>
+        <button className="decrease-vote" onClick={decreaseVotes}>
+          <IoMdThumbsDown fill="white" />
+        </button>
+      </div>
+    </IconContext.Provider>
   );
 };
 

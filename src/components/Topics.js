@@ -15,15 +15,15 @@ const Topics = () => {
 
   return (
     <div>
-      <h1>Choose a Topic</h1>
+      <h2 className="topic-title">Choose a Topic</h2>
       {topicList.map((topic) => {
         const slug = topic.slug;
 
         return (
           <div key={slug} className="topics-container">
-            <li>
+            <li className="topic-name">
               <Link to={`/topics/${slug}`}>
-                <h2>{slug}</h2>
+                <h2>{slug.toUpperCase()}</h2>
               </Link>
             </li>
           </div>

@@ -13,10 +13,11 @@ const CreateComment = ({ id, setArticleComments }) => {
   };
 
   return (
-    <div className="comment">
+    <div className="create-comment">
       <form onSubmit={handleSubmit}>
         <label>
           <input
+            className="cooment-box"
             value={textInput}
             onChange={(event) => {
               setTextInput(event.target.value);
@@ -24,7 +25,9 @@ const CreateComment = ({ id, setArticleComments }) => {
             required
           ></input>
         </label>
-        <input type="submit" value="Submit" />
+        <div>
+          <input className="submit" type="submit" value="POST" />
+        </div>
       </form>
     </div>
   );

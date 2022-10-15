@@ -1,0 +1,24 @@
+.topic-title {
+  text-align: center;
+}
+
+.topics-container {
+  text-align: center;
+  list-style: none;
+}
+.topic-name {
+  border: 5px solid #003060;
+  border-radius: 0px 30px 0px 30px;
+  margin: 30px auto;
+  padding: 15px 0px;
+  font-size: 2rem;
+  max-width: 300px;
+  background-color: white;
+
+  &:hover {
+    background-color: #003060;
+    h2 {
+      color: white;
+    }
+  }
+}
